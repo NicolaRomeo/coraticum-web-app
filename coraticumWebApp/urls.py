@@ -4,8 +4,7 @@ from django.urls import path, re_path
 
 from . import views
 
-urlpatterns = [path('',views.index,name='index'),
-               path('admin/', admin.site.urls),
+urlpatterns = [path('admin/', admin.site.urls),
                #POST OR GET A USER
                re_path(r'^api/users/$', views.users_list),
                re_path('create-checkout-session', views.create_checkout_session),
