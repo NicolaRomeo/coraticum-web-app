@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-p0s*+639mfwl7)
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
-    'coraticum-web.herokuapp.com'
+    'coraticum-web.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
