@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi --log-file -
+web: trap '' SIGTERM; gunicorn config.wsgi --log-file - & npm start & wait -n; kill -SIGTERM -$$; wait
