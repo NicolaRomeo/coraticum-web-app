@@ -1,2 +1,1 @@
-web: gunicorn config.wsgi --log-file -
-web: npm start
+worker: sh -c 'gunicorn config.wsgi --log-file - && npm start'
