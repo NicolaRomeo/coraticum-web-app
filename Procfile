@@ -1,1 +1,0 @@
-web: trap '' SIGTERM; python manage.py runserver & npm start & wait -n; kill -SIGTERM -$$; wait

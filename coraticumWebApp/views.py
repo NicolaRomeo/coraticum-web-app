@@ -68,9 +68,7 @@ def users_list(request):
 
 @api_view(['GET','POST'])
 def create_checkout_session(request):
-    print("something")
     customer = stripe.Customer.create()
-    print("shomething else")
     session = stripe.checkout.Session.create(
         mode='setup',
         payment_method_types=["card"],
@@ -81,10 +79,8 @@ def create_checkout_session(request):
             'allowed_countries': ['US', 'CA', 'IT','FR'],
         }
     )
-    print("come on")
-    response= session.url
-    res = Response(response, status=200)
-    return res
+
+    return redirect(session.url, code=303)
 
 @api_view(['GET'])
 def success(request):

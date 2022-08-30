@@ -1,0 +1,2 @@
+node: cd coraticum-fe && npm start
+python: gunicorn -b 0.0.0.0:8000 config.wsgi --log-file -
