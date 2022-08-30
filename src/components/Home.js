@@ -27,12 +27,11 @@ state= {showForm: false}
 
 showForm = () => {
    return (
-    <form action="http://127.0.0.1:8000/create-checkout-session" method="POST">
-      <button type="submit">Pre-Order for 18,90€</button>
+    <form action="/create-checkout-session" method="POST">
+      <button type="submit" >Pre-Order for 18,90€</button>
     </form>
      );
- }
-
+}
   render() {
     return (
             <div className='p-5 text-center bg-image'

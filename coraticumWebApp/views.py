@@ -66,9 +66,11 @@ def users_list(request):
                 status_code = status.HTTP_400_BAD_REQUEST
             return Response(response, status=status_code)
 
-@api_view(['POST'])
+@api_view(['GET','POST'])
 def create_checkout_session(request):
+    print("something")
     customer = stripe.Customer.create()
+    print("shomething else")
     session = stripe.checkout.Session.create(
         mode='setup',
         payment_method_types=["card"],
@@ -79,8 +81,10 @@ def create_checkout_session(request):
             'allowed_countries': ['US', 'CA', 'IT','FR'],
         }
     )
-
-    return redirect(session.url, code=303)
+    print("come on")
+    response= session.url
+    res = Response(response, status=200)
+    return res
 
 @api_view(['GET'])
 def success(request):

@@ -32,6 +32,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = [
     'coraticum-web.herokuapp.com',
     '127.0.0.1:8000',
+    '127.0.0.1'
 ]
 
 
