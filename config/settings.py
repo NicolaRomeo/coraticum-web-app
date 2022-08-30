@@ -111,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 #CORS permissions
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
- 'coraticum-web.herokuapp.com',
-    '127.0.0.1',
-    '0.0.0.0'
+    "http://127.0.0.1:8000/",
+    'coraticum-web.herokuapp.com',
+
 ]
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
