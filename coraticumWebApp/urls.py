@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, re_path
 
-from . import views
+import views
 
 urlpatterns = [path('admin/', admin.site.urls),
                #POST OR GET A USER

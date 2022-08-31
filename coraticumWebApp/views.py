@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.http import HttpResponse
-from .crud import select_all, insert_user
+from crud import select_all, insert_user
 from django.shortcuts import redirect
 import os
 import stripe
