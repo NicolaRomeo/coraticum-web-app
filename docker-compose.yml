@@ -14,18 +14,21 @@ services:
 
   frontend:
     restart: always
-    command : npm start
     container_name: front
     build:
       context: ./coraticum-fe/
       dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
     ports:
       - "3000:3000"
+    command: /usr/src/app/entrypoint.sh prod
     stdin_open: true
     depends_on:
       - coraticumwebapp
     networks:
       - db-net
+
 
 networks:
   db-net:

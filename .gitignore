@@ -5,6 +5,7 @@
 
 # dependencies
 /coraticum-fe/node_modules
+/coraticum-fe/node_modules
 /.pnp
 .pnp.js
 
