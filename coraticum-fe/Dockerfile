@@ -5,5 +5,6 @@ COPY package.json package-lock.json ./
 COPY . ./
 RUN npm install -g npm@8.1.0
 RUN npm install react-scripts@5.0.1 -g
+RUN npm install
 
 EXPOSE 3000
