@@ -1,19 +1,16 @@
-FROM node:16.13.0
+# build environment
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+COPY . ./
+RUN npm run build
 
-# first installed node_modules in cache and copy them to src folder
-RUN mkdir /usr/src/cache
-WORKDIR /usr/src/cache
-
-COPY package.json .
-RUN npm install -q
-
-WORKDIR /app/frontend
-
-# set path to run packages from node_modules
-ENV NODE_PATH=/usr/src/app/node_modules/.bin
-
-
-COPY . .
-
-
-EXPOSE 3000
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

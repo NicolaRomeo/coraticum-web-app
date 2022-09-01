@@ -19,10 +19,10 @@ services:
       context: ./coraticum-fe/
       dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/app
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
-      - "3000:3000"
-    command: entrypoint.sh prod
+      - "3000:80"
     stdin_open: true
     depends_on:
       - coraticumwebapp
