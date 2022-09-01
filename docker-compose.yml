@@ -15,15 +15,15 @@ services:
   coraticum-fe:
     restart: always
     container_name: front
-    command : npm start
     expose:
       - "3000"
     build:
       context: ./coraticum-fe/
       dockerfile: Dockerfile
     volumes:
-      - .:/app/
-      - /app/node_modules
+      - .:/app/coraticum-fe
+      - /app/coraticum-fe/node_modules
+    command : npm start
     ports:
       - "3000:3000"
     stdin_open: true
