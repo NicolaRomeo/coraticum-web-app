@@ -15,6 +15,8 @@ services:
   frontend:
     restart: always
     container_name: front
+    expose:
+      - "3000"
     build:
       context: ./coraticum-fe/
       dockerfile: Dockerfile
@@ -22,7 +24,7 @@ services:
       - .:/app/
       - /app/node_modules
     ports:
-      - "3000:80"
+      - "3000:3000"
     stdin_open: true
     depends_on:
       - coraticumwebapp
