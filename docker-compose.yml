@@ -15,6 +15,7 @@ services:
   coraticum-fe:
     restart: always
     container_name: front
+    command : bash -c "npm start"
     expose:
       - "3000"
     build:
