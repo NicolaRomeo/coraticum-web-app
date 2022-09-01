@@ -15,7 +15,6 @@ services:
   frontend:
     restart: always
     container_name: front
-    command : bash -c "npm start"
     build:
       context: ./coraticum-fe/
       dockerfile: Dockerfile
