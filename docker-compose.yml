@@ -22,7 +22,7 @@ services:
       - .:/usr/src/app
     ports:
       - "3000:3000"
-    command: /app/frontend/entrypoint.sh prod
+    command: /coraticum-fe/entrypoint.sh prod
     stdin_open: true
     depends_on:
       - coraticumwebapp
