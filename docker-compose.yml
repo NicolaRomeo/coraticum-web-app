@@ -12,7 +12,7 @@ services:
     networks:
       - db-net
 
-  frontend:
+  coraticum-fe:
     restart: always
     container_name: front
     expose:
