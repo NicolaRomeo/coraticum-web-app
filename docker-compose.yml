@@ -4,7 +4,7 @@ services:
     hostname: djangoapi
     restart: always
     container_name: code
-    command : bash -c "python manage.py runserver 0.0.0.0:8000"
+    command : bash -c "gunicorn --print-config -b 0.0.0.0:8000 config.wsgi --log-file -"
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
