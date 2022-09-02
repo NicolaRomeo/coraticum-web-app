@@ -4,12 +4,13 @@ services:
     hostname: djangoapi
     restart: always
     container_name: code
-    command : gunicorn -b 0.0.0.0:8000 config.wsgi --log-file -
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
+    command : gunicorn -b 0.0.0.0:8000 config.wsgi --log-file -
     ports:
       - "8000:8000"
+
     networks:
       - db-net
 
