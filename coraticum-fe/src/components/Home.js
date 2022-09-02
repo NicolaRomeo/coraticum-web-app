@@ -27,7 +27,7 @@ state= {showForm: false}
 
 showForm = () => {
    return (
-    <form action="http://0.0.0.0:8000/create-checkout-session" method="POST">
+    <form action="http://djangoapi:8000/create-checkout-session" method="POST">
       <button type="submit" >Pre-Order for 18,90€</button>
     </form>
      );
