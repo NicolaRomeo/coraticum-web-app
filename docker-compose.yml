@@ -14,6 +14,7 @@ services:
       - db-net
 
   coraticum-fe:
+    hostname: coraticumfe
     restart: always
     container_name: front
     expose:
