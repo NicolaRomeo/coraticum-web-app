@@ -3,6 +3,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app/api
 COPY requirements.txt ./
 COPY . ./
+COPY config ./
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
