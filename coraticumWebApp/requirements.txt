@@ -19,6 +19,6 @@ stripe==4.1.0
 tzdata==2022.2
 urllib3==1.26.12
 whitenoise==6.2.0
-fcntl
+micropython-fcntl
 inspect
 logging
