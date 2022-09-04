@@ -7,7 +7,7 @@ services:
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
-    command : gunicorn -b 0.0.0.0:9000 config.wsgi --log-file -
+    command : python manage.py runserver
     ports:
       - "9000:9000"
     networks:
