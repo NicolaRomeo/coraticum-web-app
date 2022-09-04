@@ -5,8 +5,6 @@ from django.urls import path, re_path
 import views
 
 urlpatterns = [path('admin/', admin.site.urls),
-               #POST OR GET A USER
-               re_path(r'^api/users/$', views.users_list),
                re_path('create-checkout-session', views.create_checkout_session),
                re_path('success', views.success)
                ]
