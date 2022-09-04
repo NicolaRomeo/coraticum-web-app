@@ -33,6 +33,8 @@ services:
       - coraticumwebapp
     networks:
       - db-net
+    links:
+      - "coraticumwebapp:backend"
 
 
 networks:
