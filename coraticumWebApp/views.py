@@ -39,7 +39,7 @@ def create_checkout_session(request):
     session = stripe.checkout.Session.create(
         mode='setup',
         payment_method_types=["card"],
-        success_url='http://localhost:80',
+        success_url='http://178.128.146.122:80',
         cancel_url='https://example.com/cancel',
         customer = customer.id,
         shipping_address_collection={
