@@ -5,11 +5,13 @@ services:
     restart: always
     container_name: code
     expose:
-      - "80"
+      - "8000"
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
-    command : python manage.py runserver 80
+    command : python manage.py runserver
+    ports:
+      - "8000:8000"
     networks:
       - db-net
 
