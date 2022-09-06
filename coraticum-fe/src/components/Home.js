@@ -27,7 +27,7 @@ state= {showForm: false}
 
 showForm = () => {
    return (
-    <form action="http://code:9090/create-checkout-session" method="POST">
+    <form action="http://code:8000/create-checkout-session" method="POST">
       <button type="submit" >Pre-Order for 18,90€</button>
     </form>
      );
