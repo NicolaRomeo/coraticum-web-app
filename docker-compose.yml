@@ -4,6 +4,8 @@ services:
     hostname: djangoapi
     restart: always
     container_name: code
+    expose:
+      - "8000"
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
@@ -33,8 +35,6 @@ services:
       - coraticumwebapp
     networks:
       - db-net
-    links:
-      - "coraticumwebapp:backend"
 
 
 networks:
