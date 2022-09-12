@@ -8,11 +8,11 @@ state= {showForm: false}
 
 showForm = () => {
    return (
-    <form action="http://localhost:8000/create-checkout-session" method="POST">
-      <button type="submit">Pre-Order for 18,90€</button>
+    <form action="http://178.128.146.122:9090/create-checkout-session" method="POST">
+      <button type="submit" >Pre-Order for 18,90€</button>
     </form>
      );
- }
+}
 
   render() {
     return (
