@@ -4,6 +4,8 @@ services:
     hostname: djangoapi
     restart: always
     container_name: code
+    environment:
+      - STRIPE_KEY=${STRIPE_KEY:-nokey}
     expose:
       - "8000"
     build:

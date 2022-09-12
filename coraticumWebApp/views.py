@@ -14,7 +14,7 @@ import stripe
 def index(request):
     return HttpResponse("<h1>Hello and welcome to my first <u>Django App</u> project!</h1>")
 #stripe api key
-stripe.api_key = "sk_test_51Lc7LSFNhDR4ffVKYYm8RmTGTbeSUATm8AHKsJCK4ylKSFANpNcjy7GNQ0Z0w3qS5jUcJHQ12FKNk5j2bE30gbqo003Hdb4hXo"
+stripe.api_key = os.environ['STRIPE_KEY']
 
 '''
 collection = 'dummycollection'
