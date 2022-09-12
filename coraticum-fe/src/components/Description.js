@@ -34,6 +34,15 @@ showForm = () => {
               <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
                 Pre-order now for 18,90 €
               </button>
+               <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
+        <i>You will only be charged when the product is actually shipped.
+        <br/>
+        <br/>
+        Handmade production by The Spiritual Machine, Piazza Teresa Noce, 17 D, 10155 Torino TO
+        <br/>
+        Gin, chestnuts tincture, flowers tincture, roses
+        </i>
+        </p>
                             {this.state.showForm ? this.showForm() : null}
               </div>
               </div>
