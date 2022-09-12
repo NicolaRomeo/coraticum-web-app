@@ -30,23 +30,34 @@ showForm = () => {
         <br/>
         <div className='mask' style={{left: "500px", top: "1000px", bottom: "500px", position:"absolute" }}>
                   <div className='d-flex justify-content-center align-items-center h-100'>
-            <div className='text-white' style={{background: "linear-gradient(45deg, blue, red)"}}>
+                <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
+        <i>
+        <br/>
+        Handmade production by The Spiritual Machine, Piazza Teresa Noce, 17 D, 10155 Torino TO. Limited stock.
+        <br/>
+        Gin, chestnuts tincture, flowers tincture, roses.
+                <br/>
+                        You will only be charged when the product is actually shipped.
+                        <br/>
+                        For all questions please contact nromeo@coraticumwebapp.com
+        </i>
+
+        </p>
+                              <br/>
+
+
+                              <br/>
+        <br/>
+
+              </div>
+
+        </div>
+                                  <div className='text-white' style={{position: "absolute",  top: "1100px", left: "500px", clear: "both", height: "50px",  background: "linear-gradient(45deg, blue, red)"}}>
               <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
                 Pre-order now for 18,90 €
               </button>
-               <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
-        <i>You will only be charged when the product is actually shipped.
-        <br/>
-        <br/>
-        Handmade production by The Spiritual Machine, Piazza Teresa Noce, 17 D, 10155 Torino TO
-        <br/>
-        Gin, chestnuts tincture, flowers tincture, roses
-        </i>
-        </p>
                             {this.state.showForm ? this.showForm() : null}
               </div>
-              </div>
-        </div>
               </div>
 
     );
