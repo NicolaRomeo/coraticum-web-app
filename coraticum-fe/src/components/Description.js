@@ -108,9 +108,9 @@ showForm = () => {
               </div>
 
         </div>
-                                  <div className='text-white' style={{position: "absolute",  top: "1000px", left: "500px", clear: "both", height: "75px",  background: "linear-gradient(45deg, blue, red)"}}>
+                                  <div className='text-white' style={{position: "absolute",  top: "1000px", left: "500px", clear: "both", height: "50px", width: "225px", background: "linear-gradient(45deg, blue, red)"}}>
               <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
-                Pre-order now for 18,90 €
+                Pre-order for 18,90 €
               </button>
                             {this.state.showForm ? this.showForm() : null}
               </div>
