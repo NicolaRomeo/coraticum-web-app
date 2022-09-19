@@ -49,13 +49,13 @@ class Product extends Component {
     <hr/>
         <img
           src="./label-1.png"
-          height="300"
-          width="300"
+          height="200"
+          width="200"
           alt="coraticum label"
           className="img"
           style={{ marginLeft: "10px" }}
         ></img>
-        <p style={{left: "350px", top: "750px", bottom: "500px", position:"absolute"}}>
+        <p style={{left: "250px", top: "600px", bottom: "500px", position:"absolute"}}>
         <i>What a long path that we have behind!
         <br/>
         <br/>
