@@ -29,7 +29,7 @@ class Product extends Component {
           className="img"
           style={{ marginLeft: "150px" }}
         ></img>
-        <p style={{left: "500px", top: "750px", bottom: "500px", position:"absolute"}}>
+        <p style={{left: "500px", top: "600px", bottom: "500px", position:"absolute"}}>
         <i>What a long path that we have behind!
         <br/>
         <br/>

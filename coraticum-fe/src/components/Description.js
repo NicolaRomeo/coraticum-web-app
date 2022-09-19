@@ -89,7 +89,7 @@ showForm = () => {
                 <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
         <i>
         <br/>
-        Handmade production by The Spiritual Machine, Piazza Teresa Noce, 17 D, 10155 Torino TO. Limited stock.
+        Handmade by professional distillers in Turin (TO), Italy. Limited stock.
         <br/>
         Gin, chestnuts tincture, flowers tincture, roses.
                 <br/>
