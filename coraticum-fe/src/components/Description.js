@@ -80,11 +80,11 @@ showForm = () => {
           width="300"
           alt="coraticum label"
           className="img"
-          style={{ marginLeft: "150px" }}
+          style={{ marginLeft: "10px" }}
         ></img>
         <br/>
         <br/>
-        <div className='mask' style={{left: "500px", top: "1200px", bottom: "500px", position:"absolute" }}>
+        <div className='mask' style={{left: "350px", top: "1200px", bottom: "500px", position:"absolute" }}>
                   <div className='d-flex justify-content-center align-items-center h-100'>
                 <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
         <i>
@@ -108,7 +108,7 @@ showForm = () => {
               </div>
 
         </div>
-                                  <div className='text-white' style={{position: "absolute",  top: "1000px", left: "500px", clear: "both", height: "50px", width: "225px", background: "linear-gradient(45deg, blue, red)"}}>
+                                  <div className='text-white' style={{position: "absolute",  top: "1000px", left: "350px", clear: "both", height: "50px", width: "225px", background: "linear-gradient(45deg, blue, red)"}}>
               <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
                 Pre-order for 18,90 €
               </button>
