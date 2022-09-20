@@ -141,3 +141,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp-mail.outlook.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "nick.romeo@hotmail.it"
+EMAIL_HOST_PASSWORD = os.environ.get('HOTMAIL_PWD', "")
+

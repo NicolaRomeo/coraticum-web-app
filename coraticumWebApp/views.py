@@ -1,12 +1,15 @@
 from django.shortcuts import render
 import pymongo
 import urllib
+import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.http import HttpResponse
 from crud import select_all, insert_user
 from django.shortcuts import redirect
+from django.core.mail import send_mail
+from django.conf import settings
 import os
 import stripe
 
@@ -14,7 +17,7 @@ import stripe
 def index(request):
     return HttpResponse("<h1>Hello and welcome to my first <u>Django App</u> project!</h1>")
 #stripe api key
-stripe.api_key = os.environ['STRIPE_KEY']
+#stripe.api_key = os.environ['STRIPE_KEY']
 
 '''
 collection = 'dummycollection'
@@ -53,6 +56,21 @@ def create_checkout_session(request):
 def success(request):
     response = {"email": "Order registered. You will receive a notification as soon as the product is available \n"
             "Thank you for choosing quality"}
+    res = Response(response, status=200)
+    return res
+
+@api_view(['GET','POST'])
+def send_email(request):
+    data = json.loads(request.body)
+    sender =data.get("sender", "no sender")
+    email_body = data.get("email_body", "no body in request")
+    email_body = email_body + "\n\n mail from {}".format(sender)
+    response = {"email": "Thank your for your interest. We'll reach back ASAP."
+                         "{0}:{1}".format(sender,email_body)}
+    subject = 'Contact Form from Coraticum Website'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ["nicolaromeo1@gmail.com",] #sending to myself
+    send_mail( subject, email_body, email_from, recipient_list )
     res = Response(response, status=200)
     return res
 

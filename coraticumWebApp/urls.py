@@ -6,5 +6,6 @@ import views
 
 urlpatterns = [path('admin/', admin.site.urls),
                re_path('create-checkout-session', views.create_checkout_session),
-               re_path('success', views.success)
+               re_path('success', views.success),
+                re_path('send-email', views.send_email),
                ]

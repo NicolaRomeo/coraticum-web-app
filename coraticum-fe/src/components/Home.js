@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import StudentList from "./StudentList";
 import NewStudentModal from "./NewStudentModal";
+import { Button,Form,Modal} from 'react-bootstrap';
 import axios from "axios";
 
 import { API_URL } from "../constants";
@@ -23,7 +24,7 @@ class Home extends Component {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
-state= {showForm: false}
+state= {showForm: false, openContactForm: false}
 
 showForm = () => {
    return (
@@ -32,6 +33,57 @@ showForm = () => {
     </form>
      );
 }
+  handleModal() {
+    this.setState({show:!this.state.show})
+  }
+openContactForm = () => {
+   return (
+         <div>
+        <div className="modalClass">
+          <Button onClick={()=>this.handleModal()}>Click To Open Contact Form</Button>
+        </div>
+
+        <Modal show={this.state.show} onHide={()=>this.handleModal()}>
+    <Form>
+      <Form.Group className="mb-3" controlId="sender">
+        <Form.Label>Your Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email"/>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="email_body">
+        <Form.Label>Insert your request here</Form.Label>
+        <Form.Control as="textarea" rows={8}/>
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={this.sendContactForm} >
+        Submit
+      </Button>
+    </Form>
+        </Modal>
+             </div>
+     );
+}
+
+sendContactForm = (event) => {
+    event.preventDefault();
+    // Using Axios - ensure you first install the package
+    axios.post('http://127.0.0.1:8000/send-email', {
+        // Add parameters here
+        sender : document.getElementById("sender").value,
+        email_body : document.getElementById("email_body").value,
+      })
+      .then((response) => {
+        this.setState({openContactForm: false})
+          // Handle data
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+}
+
+
+
+
+
   render() {
     return (
             <div className='p-5 text-center bg-image'
@@ -43,10 +95,11 @@ showForm = () => {
               <h1 className='mb-3'><i>Coraticum</i></h1>
               <h4 className='mb-3'>We poured the spirit of our ancestors into a bottle</h4>
               <h4 className='mb-3'>to inspire you to do your best</h4>
-              <button className='btn btn-outline-light btn-lg'  onClick={() => this.setState({showForm: true}) } role='button'>
-                Pre-order
+              <button className='btn btn-outline-light btn-lg'  onClick={() => this.setState({openContactForm: true}) }  role='button'>
+                Contact
               </button>
               {this.state.showForm ? this.showForm() : null}
+              {this.state.openContactForm ? this.openContactForm() : null}
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { Button,Form,Modal} from 'react-bootstrap';
+import axios from 'axios';
 class Description extends Component {
 
   constructor(props) {
@@ -7,10 +8,11 @@ class Description extends Component {
     this.state = { matches: window.matchMedia("(min-width: 768px)").matches };
   }
 
-  state = {
-    data: []
-  };
-state= {showForm: false}
+state= {showForm: false, openContactForm: false, show: false}
+
+  handleModal() {
+    this.setState({show:!this.state.show})
+  }
 
 showForm = () => {
    return (
@@ -19,6 +21,36 @@ showForm = () => {
     </form>
      );
 }
+
+
+openContactForm = () => {
+   return (
+         <div>
+        <div className="modalClass">
+          <Button onClick={()=>this.handleModal()}>Click To Open Contact Form</Button>
+        </div>
+
+        <Modal show={this.state.show} onHide={()=>this.handleModal()}>
+    <Form>
+      <Form.Group className="mb-3" controlId="sender">
+        <Form.Label>Your Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email"/>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="email_body">
+        <Form.Label>Insert your request here</Form.Label>
+        <Form.Control as="textarea" rows={8}/>
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={this.sendContactForm} >
+        Submit
+      </Button>
+    </Form>
+        </Modal>
+             </div>
+     );
+}
+
+
   componentDidMount() {
     const handler = e => this.setState({matches: e.matches});
     window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
@@ -45,13 +77,11 @@ showForm = () => {
                 <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
         <i>
         <br/>
-        Handmade by professional distillers in Turin (TO), Italy. Limited stock.
-        <br/>
-        Gin, chestnuts tincture, flowers tincture, roses.
-                <br/>
-                        You will only be charged when the product is actually shipped.
+        Handmade in Italy. Limited stock.
                         <br/>
-                        For all questions please contact nromeo@coraticumwebapp.com
+                        For all questions please fill out the form
+                                     <br/>
+                  or contact nromeo@coraticumwebapp.com
         </i>
 
         </p>
@@ -65,10 +95,10 @@ showForm = () => {
 
         </div>
                                   <div className='text-white' style={{position: "absolute",  top: "1100px", left: "500px", clear: "both", height: "50px",  background: "linear-gradient(45deg, blue, red)"}}>
-              <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
-                Pre-order now for 18,90 €
+              <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({openContactForm: true}) } href='#!' role='button'>
+                Ask more info
               </button>
-                            {this.state.showForm ? this.showForm() : null}
+                            {this.state.openContactForm ? this.openContactForm() : null}
               </div>
               </div>
 )}
@@ -89,13 +119,12 @@ showForm = () => {
                 <p style={{marginTop: "30px", marginRight: "250px", float: "right", position:"relative"}}>
         <i>
         <br/>
-        Handmade by professional distillers in Turin (TO), Italy. Limited stock.
         <br/>
-        Gin, chestnuts tincture, flowers tincture, roses.
-                <br/>
-                        You will only be charged when the product is actually shipped.
+        Handmade in Italy. Limited stock.
                         <br/>
-                        For all questions please contact nromeo@coraticumwebapp.com
+                        For all questions please fill out the form
+                                     <br/>
+                  or contact nromeo@coraticumwebapp.com
         </i>
 
         </p>
@@ -109,16 +138,34 @@ showForm = () => {
 
         </div>
                                   <div className='text-white' style={{position: "absolute",  top: "1100px", left: "10px", clear: "both", height: "50px", width: "225px", background: "linear-gradient(45deg, blue, red)"}}>
-              <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({showForm: true}) } href='#!' role='button'>
-                Pre-order for 18,90 €
+              <button className='btn btn-outline-light btn-lg' onClick={() => this.setState({openContactForm: true}) } href='#!' role='button'>
+                Ask more info
               </button>
-                            {this.state.showForm ? this.showForm() : null}
+                            {this.state.openContactForm ? this.openContactForm() : null}
               </div>
               </div>)}
 
 </div>
     );
   }
+
+
+sendContactForm = (event) => {
+    event.preventDefault();
+    // Using Axios - ensure you first install the package
+    axios.post('http://178.128.146.122:9090/send-email', {
+        // Add parameters here
+        sender : document.getElementById("sender").value,
+        email_body : document.getElementById("email_body").value,
+      })
+      .then((response) => {
+        this.setState({openContactForm: false})
+          // Handle data
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+}
 }
 
 export default Description;
