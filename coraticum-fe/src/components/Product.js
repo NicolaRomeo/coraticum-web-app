@@ -35,7 +35,7 @@ class Product extends Component {
         <br/>
         Take a moment
         to appreciate yourself
-        with this 100% italian
+        with this
         <br/>
         chestnuts and roses spirit
         </i>
