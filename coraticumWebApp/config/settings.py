@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import smtplib
 from pathlib import Path
 import os
 
@@ -149,4 +149,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "nick.romeo@hotmail.it"
 EMAIL_HOST_PASSWORD = os.environ.get('HOTMAIL_PWD', "")
-
+server = smtplib.SMTP('smtp.office365.com', 587)
+server.starttls()
