@@ -70,6 +70,8 @@ def send_email(request):
     subject = 'Contact Form from Coraticum Website'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = ["nicolaromeo1@gmail.com",] #sending to myself
+    print("sending email")
+    print("email user {}".format(email_from))
     send_mail( subject, email_body, email_from, recipient_list )
     res = Response(response, status=200)
     return res
