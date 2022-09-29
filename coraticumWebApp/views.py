@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 import os
 import stripe
-
+from django.test import TestCase, override_settings
 # Create your views here.
 def index(request):
     return HttpResponse("<h1>Hello and welcome to my first <u>Django App</u> project!</h1>")
@@ -59,6 +59,9 @@ def success(request):
     res = Response(response, status=200)
     return res
 
+
+
+@override_settings(ENV_VALUE='HOTMAIL_PWD', ENVIRONMENT='local')
 @api_view(['GET','POST'])
 def send_email(request):
     data = json.loads(request.body)
@@ -72,7 +75,8 @@ def send_email(request):
     recipient_list = ["nicolaromeo1@gmail.com",] #sending to myself
     print("sending email")
     print("email user {}".format(email_from))
-    send_mail( subject, email_body, email_from, recipient_list )
+    print("email password {}".format(os.environ.get('ENV_VALUE', "")))
+    #send_mail( subject, email_body, email_from, recipient_list, False,settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD  )
     res = Response(response, status=200)
     return res
 
