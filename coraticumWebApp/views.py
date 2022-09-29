@@ -60,9 +60,6 @@ def success(request):
     res = Response(response, status=200)
     return res
 
-
-
-@override_settings(ENV_VALUE='HOTMAIL_PWD', ENVIRONMENT='local')
 @api_view(['GET','POST'])
 def send_email(request):
     data = json.loads(request.body)

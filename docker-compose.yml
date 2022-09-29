@@ -6,6 +6,8 @@ services:
     container_name: code
     expose:
       - "8000"
+      - "587"
+      - "25"
     build:
       context: ./coraticumWebApp/
       dockerfile: Dockerfile
