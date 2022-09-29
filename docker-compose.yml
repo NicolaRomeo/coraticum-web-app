@@ -4,9 +4,6 @@ services:
     hostname: djangoapi
     restart: always
     container_name: code
-    environment:
-      - STRIPE_KEY=${STRIPE_KEY:-nokey}
-      - HOTMAIL_PWD=${HOTMAIL_PWD:-nohotmailpwd}
     expose:
       - "8000"
     build:
