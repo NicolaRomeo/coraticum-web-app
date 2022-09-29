@@ -2,6 +2,7 @@ from django.shortcuts import render
 import pymongo
 import urllib
 import json
+import environ
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -74,9 +75,9 @@ def send_email(request):
     email_from = settings.EMAIL_HOST_USER
     recipient_list = ["nicolaromeo1@gmail.com",] #sending to myself
     print("sending email")
-    print("email user {}".format(email_from))
-    print("email password {}".format(os.environ.get('ENV_VALUE', "")))
-    #send_mail( subject, email_body, email_from, recipient_list, False,settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD  )
+    #print("email user {}".format(email_from))
+    #print("email password {}".format(settings.EMAIL_HOST_PASSWORD))
+    send_mail( subject, email_body, email_from, recipient_list, False,settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD  )
     res = Response(response, status=200)
     return res
 

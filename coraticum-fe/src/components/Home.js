@@ -66,6 +66,7 @@ openContactForm = () => {
 sendContactForm = (event) => {
     event.preventDefault();
     // Using Axios - ensure you first install the package
+    //http://178.128.146.122:9090/send-email
     axios.post('http://178.128.146.122:9090/send-email', {
         // Add parameters here
         sender : document.getElementById("sender").value,

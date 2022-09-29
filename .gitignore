@@ -4,6 +4,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/coraticumWebApp/.env
 /coraticum-fe/node_modules
 /coraticum-fe/node_modules
 /.pnp
